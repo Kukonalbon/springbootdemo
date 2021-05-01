@@ -8,12 +8,26 @@
 <script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 <style type="text/css">
 	.menu{
-		border: 1px solid #777;
+		border: 1px solid #337ab7;
 	}
 	.sub-menu{
 		border: none;
 	}
+	.menu li{
+		cursor: pointer;
+	}
+	.menu>li{
+		background: #337ab7;
+		color: #FFFFFF;
+	}
 </style>
+<script type="text/javascript">
+	jQuery(document).ready(function () {
+		$("#create-course").click(function () {
+			$("#frame").load("create_course.html .sub-htm");
+		});
+	});
+</script>
 </head>
 <body>
 <div class="container">
@@ -27,13 +41,24 @@
 		<div class="col-md-2">
 			<ul class="list-group menu">
 				<li class="list-group-item" data-toggle="collapse" data-target="#kcgl">课程管理</li>
-				<ul id="kcgl" class="collapse list-group">
-					<li class="list-group-item sub-menu">创建课程</li>
-					<li class="list-group-item sub-menu">创建课程</li>
-					<li class="list-group-item sub-menu">创建课程</li>
-				</ul>
-				<li class="list-group-item">学生管理</li>
+				<div id="kcgl" class="collapse" >
+					<li class="list-group-item sub-menu">我的课程</li>
+					<li class="list-group-item sub-menu" id="create-course">创建课程</li>
+					<li class="list-group-item sub-menu" style="margin: 0px;">创建课程</li>
+				</div>
+				<li class="list-group-item" data-toggle="collapse" data-target="xsgl">课程内容管理</li>
+				<div id="xsgl" class="collapse list-group">
+					<li></li>
+				</div>
+				<li class="list-group-item" data-toggle="collapse" data-target="xsgl">学生管理</li>
+				<div id="xsgl" class="collapse list-group">
+					<li></li>
+				</div>
+				<li class="list-group-item" data-toggle="collapse" data-target="zlgl">资料管理</li>
 			</ul>
+		</div>
+		<div class="col-md-10" id="frame">
+			
 		</div>
 	</div>
 </div>
