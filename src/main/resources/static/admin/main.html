@@ -24,7 +24,18 @@
 <script type="text/javascript">
 	jQuery(document).ready(function () {
 		$("#create-course").click(function () {
-			$("#frame").load("create_course.html .sub-htm");
+			$("#frame").load("create_course.html .sub-htm","",function () {
+				$("#add-course").click(function () {										
+					$.ajax({
+						type:"post",
+						url:"addcourse",
+						data:$("#course").serialize(),
+						success:function (d) {
+							alert(d);
+						}
+					});
+				});
+			});
 		});
 	});
 </script>
