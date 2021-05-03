@@ -1,6 +1,7 @@
 package com.xh.entiy;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,7 +29,11 @@ public class Course implements Serializable{
 	private Date create_time;
 	
 	@ManyToMany(mappedBy="courses",cascade=CascadeType.ALL)
-	private List<User> users;
+	private List<User> users=new ArrayList<>();
+	
+	@OneToMany(mappedBy="course",cascade=CascadeType.ALL)
+	private List<CourseCatalog> catalogs=new ArrayList<>();
+	
 	public Integer getId() {
 		return id;
 	}
